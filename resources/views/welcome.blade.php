@@ -12,10 +12,10 @@
 <body>
   <div class="container-fluid">
     <div class="row">
-        <div class="col-lg-1 bg-dark">
+        <div class="col-lg-1">
             <ul class="nav flex-column">
                 <li class="nav-item">
-                  <a class="nav-link text-warning" aria-current="page" href="/">
+                  <a class="nav-link text-dark" aria-current="page" href="/">
                     <img src="{{ asset('img/logo.jpg') }}" width="50px" height="50px">
                     Home
                 </a>
@@ -24,17 +24,17 @@
         </div>
 
         <div class="col-lg-11 col-md-10 bg-light mx-auto my-auto p-5 ">
-          <ul class="list-group list-group-horizontal-md pb-3">
-            <li class="list-group-item"><a class="nav-link text-dark" href="/products">View Products</a></li>
-            <li class="list-group-item"><a class="nav-link text-dark" href="/newproduct">Create Products</a></li>
+          <ul class="list-group list-group-horizontal-md p-3">
+            <li class="list-group-item p-5"><a class="nav-link text-dark" href="/products">View Products</a></li>
+            <li class="list-group-item p-5"><a class="nav-link text-dark" href="/newproduct">Create Products</a></li>
           </ul>
-          <ul class="list-group list-group-horizontal-lg pb-3">
-            <li class="list-group-item"><a class="nav-link text-dark" href="/customers">View Customers</a></li>
-            <li class="list-group-item"><a class="nav-link text-dark" href="/newcustomer">Create Customers</a></li>
+          <ul class="list-group list-group-horizontal-md p-3">
+            <li class="list-group-item p-5"><a class="nav-link text-dark" href="/customers">View Customers</a></li>
+            <li class="list-group-item p-5"><a class="nav-link text-dark" href="/newcustomer">Create Customers</a></li>
           </ul>
-          <ul class="list-group list-group-horizontal-xl">
-            <li class="list-group-item"><a class="nav-link text-dark" href="/invoices">View Invoices</a></li>
-            <li class="list-group-item"><a class="nav-link text-dark" href="/newinvoice">Create Invoice</a></li>
+          <ul class="list-group list-group-horizontal-md p-3">
+            <li class="list-group-item p-5"><a class="nav-link text-dark" href="/invoices">View Invoices</a></li>
+            <li class="list-group-item p-5"><a class="nav-link text-dark" href="/newinvoice">Create Invoice</a></li>
           </ul>
         </div>
     </div>

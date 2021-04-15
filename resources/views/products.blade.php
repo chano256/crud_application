@@ -135,7 +135,7 @@
                                     </div>
                                     <div class="form group mb-3">
                                         <label>Service:</label>
-                                        <input type="boolean" class="form-control" id="productService" name="service" placeholder="Number">
+                                        <input type="number" class="form-control" id="productService" name="service" placeholder="Number">
                                     </div>
                                 </div>
                                 <div class="modal-footer">

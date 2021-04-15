@@ -16,6 +16,12 @@ class ProductSeeder extends Seeder
             ['name' => 'milk', 'price' => '299', 'description' => 'tall', 'service' => '0'],
             ['name' => 'cod', 'price' => '1293', 'description' => 'long', 'service' => '1'],
             ['name' => 'fish', 'price' => '1393', 'description' => 'medium', 'service' => '1'],
+            ['name' => 'milks', 'price' => '299', 'description' => 'tall', 'service' => '0'],
+            ['name' => 'cods', 'price' => '1293', 'description' => 'long', 'service' => '1'],
+            ['name' => 'fishs', 'price' => '1393', 'description' => 'medium', 'service' => '1'],
+            ['name' => 'milker', 'price' => '299', 'description' => 'tall', 'service' => '0'],
+            ['name' => 'coder', 'price' => '1293', 'description' => 'long', 'service' => '1'],
+            ['name' => 'fisher', 'price' => '1393', 'description' => 'medium', 'service' => '1'],
         ];
 
         foreach($products as $product) {

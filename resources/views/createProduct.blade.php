@@ -77,7 +77,7 @@
                                 </div>
                                 <div class="form-floating mb-3">
                                     <input type="boolean" class="form-control" type="text" name="service" placeholder="Enter True or False">
-                                    <label>Service</label>
+                                    <label>Service (1 for True/ 0 for False)</label>
                                 </div>
                                 <button type="submit" class="btn btn-primary">Submit</button>
                             </form>
