@@ -16,7 +16,16 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::resource('/newproduct', 'ProductController');
+//POST, DELETE, PATCH, DELETE
 
+//Product Resource
+Route::get('/products', 'ProductController@show');
+Route::resource('newproduct', 'ProductController');
+
+//Customer Resource
+Route::get('/customers', 'CustomerController@show');
 Route::resource('/newcustomer', 'CustomerController');
-Route::get('customers', [CustomerController::class, 'show']);
+
+//Invoice Resource
+Route::get('/invoices', 'InvoiceController@show');
+Route::resource('newinvoice', 'InvoiceController');

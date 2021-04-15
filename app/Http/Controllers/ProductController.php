@@ -14,8 +14,7 @@ class ProductController extends Controller
      */
     public function index()
     {
-        //Returns createProduct View
-        return view('createProduct');
+        return view('createproduct');
     }
 
     /**
@@ -50,7 +49,7 @@ class ProductController extends Controller
 
         $POST->save();
 
-        return redirect('/newproduct')->with('success', 'Product Saved');
+        return redirect('/products')->with('success', 'Product Saved');
     }
 
     /**
@@ -59,9 +58,11 @@ class ProductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show()
     {
-        //
+        $products = Product::paginate(5);
+
+        return view('products', ['products' => $products]);
     }
 
     /**
@@ -84,7 +85,21 @@ class ProductController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->validate($request, [
+            'name' => 'required', 'max:25',
+            'price' => 'required',
+        ]);
+
+        $UPADTE = Product::find($id);
+
+        $UPADTE->name = $request->input('name');
+        $UPADTE->price = $request->input('price');
+        $UPADTE->description = $request->input('description');
+        $UPADTE->service = $request->input('service');
+
+        $UPADTE->save();
+
+        return redirect('/products')->with('success', 'Product Saved');
     }
 
     /**
@@ -95,6 +110,10 @@ class ProductController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $product = Product::find($id);
+
+        $product->delete();
+
+        return redirect('products')->with('danger', '!!Product deleted.');
     }
 }

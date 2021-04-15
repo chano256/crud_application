@@ -24,5 +24,31 @@ class ApiController extends Controller
 
     return response()->json($customers);
   }
+  
+  public function showById($id) {
+    $customers = Customer::find($id);
 
+    return response()->json($customers);
+  }
+
+  public function updateById(Request $request, $id) {
+    $customers = Customer::find($id);
+
+    $customers->firstname = $request->input('firstname');
+    $customers->lastname = $request->input('lastname');
+    $customers->email = $request->input('email');
+    $customers->number = $request->input('number');
+    $customers->address = $request->input('address');
+
+    $customers.save();
+    return response()->json($customers);
+  }
+
+  public function deleteById(Request $request, $id) {
+    $customers = Customer::find($id);
+
+    $customers.delete();
+
+    return response()->json($customers);
+  }
 }

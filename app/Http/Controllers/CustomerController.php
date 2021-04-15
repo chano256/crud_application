@@ -14,7 +14,7 @@ class CustomerController extends Controller
      */
     public function index()
     {
-        return view('createCustomer');
+        return view('createcustomer');
     }
 
     /**
@@ -51,7 +51,7 @@ class CustomerController extends Controller
 
         $POST->save();
 
-        return redirect('/newcustomer')->with('success', 'Customer Saved');
+        return redirect('/customers')->with('success', 'Customer Saved');
     }
 
     /**
@@ -94,17 +94,17 @@ class CustomerController extends Controller
             'email' => 'required', 'max:75', 'unique:posts',
         ]);
 
-        $POST = Customer::find($id);
+        $UPDATE = Customer::find($id);
 
-        $POST->firstname = $request->input('firstname');
-        $POST->lastname = $request->input('lastname');
-        $POST->email = $request->input('email');
-        $POST->number = $request->input('number');
-        $POST->address = $request->input('address');
+        $UPDATE->firstname = $request->input('firstname');
+        $UPDATE->lastname = $request->input('lastname');
+        $UPDATE->email = $request->input('email');
+        $UPDATE->number = $request->input('number');
+        $UPDATE->address = $request->input('address');
 
-        $POST->save();
+        $UPDATE->save();
 
-        return redirect('/newcustomer')->with('success', 'Customer Updated');
+        return redirect('/customers')->with('success', 'Customer Updated');
     }
 
     /**
@@ -115,6 +115,10 @@ class CustomerController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $customer = Customer::find($id);
+
+        $customer->delete();
+
+        return redirect('customers')->with('danger', '!!Customer deleted.');
     }
 }
