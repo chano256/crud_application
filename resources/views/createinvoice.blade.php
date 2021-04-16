@@ -64,8 +64,8 @@
                                 {{ csrf_field() }}
 
                                 <div class="form-floating mb-3">
-                                    <input type="date" class="form-control" name="date" placeholder="Date (year/month/day)">
-                                    <label>Date: (year/month/day)</label>
+                                    <input type="date" class="form-control datepicker" name="date" placeholder="Date (year/month/day)">
+                                    <label>Date:</label>
                                 </div>
                                 <div class="form-floating mb-3">
                                     <input type="text" class="form-control" name="customer" placeholder="Customer">
