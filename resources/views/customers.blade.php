@@ -1,84 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>{{ config('app.name') }}</title>
+@extends('layouts.index')
+@section('content')
 
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-    <link href="https://cdn.datatables.net/1.10.24/css/dataTables.bootstrap4.min.css" rel="stylesheet">
-</head>
-<body>
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-lg-1 bg-light">
-                <ul class="nav flex-column">
-                    <li class="nav-item">
-                      <a class="nav-link text-dark" aria-current="page" href="/">
-                        <img src="{{ asset('img/logo.jpg') }}" width="50px" height="50px">
-                        Home
-                    </a>
-                    </li>
-                    <li class="nav-item">
-                      <a class="nav-link text-dark" href="/products">Products</a>
-                    </li>
-                    <li class="nav-item">
-                      <a class="nav-link text-dark" href="/customers">Customers</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-dark" href="/invoices">Invoices</a>
-                    </li>
-                </ul>
-            </div>
-
-            <div class="col-lg-11 col-md-10">
-                <!-- Edit and Delete Modal-->
-                <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="editModalLabel" aria-hidden="true">
-                    <div class="modal-dialog" role="document">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="editModalLabel">Edit Customer</h5>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
-                            </div>
-
-                            <form method="POST" action="/newcustomer" id="editForm">
-                                {{ csrf_field() }}
-                                {{ method_field('PATCH') }}
-
-                                <div class="modal-body">
-                                    <div class="form group mb-3">
-                                    <label>First Name:</label>
-                                    <input type="text" class="form-control" id="customerFirstName" name="firstname" placeholder="First name">
-                                    </div>
-                                    <div class="form group mb-3">
-                                        <label>Last Name:</label>
-                                        <input type="text" class="form-control" id="customerLastName" name="lastname" placeholder="Last name">
-                                    </div>
-                                    <div class="form group mb-3">
-                                        <label>Email:</label>
-                                        <input type="text" class="form-control" id="customerEmail" name="email" placeholder="Email">
-                                    </div>
-                                    <div class="form group mb-3">
-                                        <label>Number:</label>
-                                        <input type="number" class="form-control" id="customerNumber" name="number" placeholder="Number">
-                                    </div>
-                                    <div class="form group mb-3">
-                                        <label>Address:</label>
-                                        <input type="text" class="form-control" id="customerAddress" name="address" placeholder="Email">
-                                    </div>
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                    <button type="submit" class="btn btn-primary">Update Customer</button>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-
+            <div class="col-lg-11">
                 <!-- Customer List Table-->
                 <div class="container" style="color:black">
                     <div class="row">
@@ -131,8 +54,8 @@
                                         <td>{{ $customer->customer_id }}</td>
                                         <td>{{ $customer->firstname }}</td>
                                         <td>{{ $customer->lastname }}</td>
-                                        <td>{{ $customer->email }}</td>
-                                        <td>{{ $customer->phone }}</td>
+                                        <td class="overflow-hidden">{{ $customer->email }}</td>
+                                        <td>{{ $customer->number }}</td>
                                         <td>{{ $customer->address }}</td>
                                         <td>
                                             <form action="{{ action('CustomerController@destroy', $customer->customer_id) }}" method="POST">
@@ -150,6 +73,52 @@
                             </table>
 
                             <span>{{ $customers->links() }}</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Edit and Delete Modal-->
+                <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="editModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="editModalLabel">Edit Customer</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+
+                            <form method="POST" action="/newcustomer" id="editForm">
+                                {{ csrf_field() }}
+                                {{ method_field('PATCH') }}
+
+                                <div class="modal-body">
+                                    <div class="form group mb-3">
+                                    <label>First Name:</label>
+                                    <input type="text" class="form-control" id="customerFirstName" name="firstname" placeholder="First name">
+                                    </div>
+                                    <div class="form group mb-3">
+                                        <label>Last Name:</label>
+                                        <input type="text" class="form-control" id="customerLastName" name="lastname" placeholder="Last name">
+                                    </div>
+                                    <div class="form group mb-3">
+                                        <label>Email:</label>
+                                        <input type="text" class="form-control" id="customerEmail" name="email" placeholder="Email">
+                                    </div>
+                                    <div class="form group mb-3">
+                                        <label>Number:</label>
+                                        <input type="number" class="form-control" id="customerNumber" name="number" placeholder="Number">
+                                    </div>
+                                    <div class="form group mb-3">
+                                        <label>Address:</label>
+                                        <input type="text" class="form-control" id="customerAddress" name="address" placeholder="Email">
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                    <button type="submit" class="btn btn-primary">Update Customer</button>
+                                </div>
+                            </form>
                         </div>
                     </div>
                 </div>
@@ -195,5 +164,4 @@
             }
         });
     </script>
-</body>
-</html>
+@endsection

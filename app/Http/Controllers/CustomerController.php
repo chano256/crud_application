@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+//use Illuminate\Support\Facades\Hash;
 use App\Customer;
 
 class CustomerController extends Controller
@@ -38,13 +39,15 @@ class CustomerController extends Controller
         $this->validate($request, [
             'firstname' => 'required', 'max:25',
             'lastname' => 'required', 'max:25',
-            'email' => 'required', 'max:75', 'unique:posts',
+            'email' => 'required', 'max:100', 'unique:posts',
         ]);
 
         $POST = new Customer;
 
         $POST->firstname = $request->input('firstname');
         $POST->lastname = $request->input('lastname');
+        //Hashing the email in the database
+        //$UPDATE->email = Hash::make($request->input('email'));
         $POST->email = $request->input('email');
         $POST->number = $request->input('number');
         $POST->address = $request->input('address');
@@ -91,7 +94,7 @@ class CustomerController extends Controller
         $this->validate($request, [
             'firstname' => 'required', 'max:25',
             'lastname' => 'required', 'max:25',
-            'email' => 'required', 'max:75', 'unique:posts',
+            'email' => 'required', 'max:500', 'unique:posts',
         ]);
 
         $UPDATE = Customer::find($id);
@@ -99,7 +102,7 @@ class CustomerController extends Controller
         $UPDATE->firstname = $request->input('firstname');
         $UPDATE->lastname = $request->input('lastname');
         $UPDATE->email = $request->input('email');
-        $UPDATE->number = $request->input('number');
+        $UPDATE->number = $request->input('number'); 
         $UPDATE->address = $request->input('address');
 
         $UPDATE->save();

@@ -5,7 +5,7 @@ namespace Tests\Feature;
 use Tests\TestCase;
 use Illuminate\Foundation\Testing\WithFaker as Fake;
 use Illuminate\Foundation\Testing\RefreshDatabase;
-use App\Customer;
+use App\Http\Controllers\CustomController;
 
 class CustomerTest extends TestCase
 {
@@ -15,7 +15,7 @@ class CustomerTest extends TestCase
      * @return void
      */
 
-    //use RefreshDatabase;
+    use RefreshDatabase;
 
     public function test_customer_page_loads() 
     {

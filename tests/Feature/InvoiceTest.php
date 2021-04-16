@@ -15,6 +15,9 @@ class InvoiceTest extends TestCase
      *
      * @return void
      */
+    
+    use RefreshDatabase;
+
     public function test_invoice_page_loads() 
     {
         $response = $this->get('/invoices');

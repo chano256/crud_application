@@ -13,6 +13,9 @@ class ProductTest extends TestCase
      *
      * @return void
      */
+    
+    use RefreshDatabase;
+
     public function test_product_page_loads() 
     {
         $response = $this->get('/products');

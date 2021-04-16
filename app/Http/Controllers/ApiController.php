@@ -10,6 +10,7 @@ class ApiController extends Controller
   public function createCustomer(Request $request) 
   {
     $customer = new Customer(); 
+    
     $customer->firstname = $request->input('firstname');
     $customer->lastname = $request->input('lastname');
     $customer->email = $request->input('email');

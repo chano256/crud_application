@@ -20,7 +20,7 @@ Route::get('/', function () {
 
 //Product Resource
 Route::get('/products', 'ProductController@show');
-Route::resource('newproduct', 'ProductController');
+Route::resource('/newproduct', 'ProductController');
 
 //Customer Resource
 Route::get('/customers', 'CustomerController@show');
@@ -28,4 +28,4 @@ Route::resource('/newcustomer', 'CustomerController');
 
 //Invoice Resource
 Route::get('/invoices', 'InvoiceController@show');
-Route::resource('newinvoice', 'InvoiceController');
+Route::resource('/newinvoice', 'InvoiceController');
