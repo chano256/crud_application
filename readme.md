@@ -24,6 +24,8 @@ Laravel is accessible, yet powerful, providing tools needed for large, robust ap
 - Install laravel 5.7 using composer. (composer global require "laravel/laravel=~5.7")
 - Run "Composer install" 
 - If you get the error then run "composer dump-autoload"
+- Change .env.example file to .env.
+- WIthin the project directory, run "php artisan key:generate" to generate an API key.
 - Install MySQL Database for storage.
 - Start Application using php artisan serve.
 - Migrate the database with php artisan migrate.
