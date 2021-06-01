@@ -22,6 +22,8 @@ Laravel is accessible, yet powerful, providing tools needed for large, robust ap
 
 - Install Composer from (https://getcomposer.org/). 
 - Install laravel 5.7 using composer. (composer global require "laravel/laravel=~5.7")
+- Run "Composer install" 
+- If you get the error then run "composer dump-autoload"
 - Install MySQL Database for storage.
 - Start Application using php artisan serve.
 - Migrate the database with php artisan migrate.
